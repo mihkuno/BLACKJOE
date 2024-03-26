@@ -15,14 +15,11 @@ async function initializeObjectDetector() {
         "./node_modules/@mediapipe/tasks-vision/wasm"
     );
 
-    const pretrained = "./models/efficientdet_lite0_uint8.tflite";
-    const blackjack = "./models/blackjack/model.tflite";
-
     objectDetector = await ObjectDetector.createFromOptions(vision, {
         baseOptions: {
-            modelAssetPath: blackjack,
+            modelAssetPath: "./models/v2_40x25.tflite",
         },
-        scoreThreshold: 0.3,
+        scoreThreshold: 0.55,
         runningMode: "VIDEO",
     });
 
