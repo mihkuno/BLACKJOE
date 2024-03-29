@@ -17,10 +17,11 @@ async function initializeObjectDetector() {
 
     objectDetector = await ObjectDetector.createFromOptions(vision, {
         baseOptions: {
-            modelAssetPath: "./models/v2_40x25.tflite",
+            modelAssetPath: "./models/model.tflite",
         },
-        scoreThreshold: 0.55,
+        scoreThreshold: 0.7,
         runningMode: "VIDEO",
+
     });
 
     renderLoop();
