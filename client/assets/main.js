@@ -1,4 +1,6 @@
-import { FilesetResolver, ObjectDetector } from "@mediapipe/tasks-vision";
+// import { FilesetResolver, ObjectDetector } from "@mediapipe/tasks-vision";
+import { FilesetResolver, ObjectDetector } from "/node_modules/.pnpm/@mediapipe+tasks-vision@0.10.12/node_modules/@mediapipe/tasks-vision/vision_bundle.mjs";
+
 
 let objectDetector;
 let detections = [];        
@@ -12,12 +14,12 @@ async function initializeObjectDetector() {
     document.getElementById('camera-stream').srcObject = stream;
 
     const vision = await FilesetResolver.forVisionTasks(
-        "node_modules/@mediapipe/tasks-vision/wasm"
+        "/node_modules/@mediapipe/tasks-vision/wasm"
     );
 
     objectDetector = await ObjectDetector.createFromOptions(vision, {
         baseOptions: {
-            modelAssetPath: "/i320_8x100.tflite",
+            modelAssetPath: "public/i320_8x100.tflite",
         },
         scoreThreshold: 0.4,
         runningMode: "VIDEO",
